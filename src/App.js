@@ -1,16 +1,22 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import { BaseLayout } from './layouts/BaseLayout';
+import { Button } from './ui/Button';
+import { TextField } from './ui/TextField';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <header>
-          <h1>Welcome to Upgrade challenge</h1>
-        </header>
-        <p>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <BaseLayout>
+        <div style={{ width: 330, margin: 'auto' }}>
+          <h1>Sign up</h1>
+
+          <TextField label="First name" name="firstName" />
+          <TextField label="Email" name="email" />
+          <TextField label="Password" name="password" type="password" />
+
+          <Button>Next <i className='icon-arrow-right'></i></Button>
+        </div>
+      </BaseLayout>
     );
   }
 }
