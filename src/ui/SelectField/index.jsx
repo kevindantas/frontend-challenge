@@ -1,11 +1,18 @@
 import React from 'react';
-import { Input, InputLabel, InputWrapper } from './styles';
+import { useField } from 'formik';
+import { Select } from './styles';
+import { BaseFormField } from '../BaseFormField';
 
-export function TextField({ label, ...props }) {
+export function SelectField({ label, ...props }) {
+  const [field, meta] = useField(props);
+
   return (
-    <InputWrapper>
-      <InputLabel>{label}</InputLabel>
-      <Input type="text" {...props} />
-    </InputWrapper>
+    <BaseFormField
+      label={label}
+      errorMessage={meta.error}
+      hasError={meta.touched && meta.error}
+    >
+      <Select {...field} {...props} />
+    </BaseFormField>
   );
 }

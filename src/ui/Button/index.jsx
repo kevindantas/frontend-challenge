@@ -1,5 +1,10 @@
+import { CircularSpinner } from '../CircularSpinner';
 import { BaseButton } from './styles';
 
-export function Button({ children, ...props }) {
-  return <BaseButton {...props}>{children}</BaseButton>;
+export function Button({ children, isLoading, ...props }) {
+  return (
+    <BaseButton {...props} disabled={isLoading}>
+      {isLoading ? <CircularSpinner /> : children}
+    </BaseButton>
+  );
 }
