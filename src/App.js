@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { BaseLayout } from './layouts/BaseLayout';
-import { Button } from './ui/Button';
-import { TextField } from './ui/TextField';
+import { ErrorPage } from './pages/ErrorPage';
+import { MoreInfoPage } from './pages/MoreInfoPage';
+import { SignUpPage } from './pages/SignUpPage';
+import { SuccessPage } from './pages/SuccessPage';
+import { ConfirmationPage } from './pages/ConfirmationPage';
 
 class App extends Component {
   render() {
     return (
-      <BaseLayout>
-        <div style={{ width: 330, margin: 'auto' }}>
-          <h1>Sign up</h1>
-
-          <TextField label="First name" name="firstName" />
-          <TextField label="Email" name="email" />
-          <TextField label="Password" name="password" type="password" />
-
-          <Button>Next <i className='icon-arrow-right'></i></Button>
-        </div>
-      </BaseLayout>
+      <Routes>
+        <Route path="/" element={<BaseLayout />}>
+          <Route index element={<SignUpPage />} />
+          <Route path="more-info" element={<MoreInfoPage />} />
+          <Route path="confirmation" element={<ConfirmationPage />} />
+          <Route path="success" element={<SuccessPage />} />
+          <Route path="error" element={<ErrorPage />} />
+        </Route>
+      </Routes>
     );
   }
 }
