@@ -1,9 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Card } from '../ui/Card';
 
 export function SuccessPage() {
   return (
-    <div style={{ width: 330, margin: 'auto' }}>
+    <Card>
       <h1>Success</h1>
-    </div>
+      <p>You should receive a confirmation email soon</p>
+      <Link to="/">Restart</Link>
+    </Card>
   );
 }
