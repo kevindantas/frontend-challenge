@@ -26,7 +26,6 @@ export const SvgSpinner = styled.svg`
   animation: ${rotate} 2s linear infinite;
   width: 24px;
   height: 24px;
-  stroke: white;
 
   & circle {
     stroke: hsl(210, 70, 75);
