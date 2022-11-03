@@ -7,7 +7,7 @@ export function CircularSpinner({
   ...props
 }) {
   return (
-    <SvgSpinner viewBox="0 0 50 50" stroke={stroke}>
+    <SvgSpinner viewBox="0 0 50 50" stroke={stroke} {...props}>
       <circle
         cx="25"
         cy="25"

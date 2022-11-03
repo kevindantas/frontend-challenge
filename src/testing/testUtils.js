@@ -2,14 +2,16 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event'
-import { store } from '../app/store';
+import userEvent from '@testing-library/user-event';
+import { getStore, store } from '../app/store';
 
-
-export function renderWithProviders(ui, renderOptions = {}) {
+export function renderWithProviders(
+  ui,
+  { preloadedState = {}, ...renderOptions } = {},
+) {
   function Wrapper({ children }) {
     return (
-      <Provider store={store}>
+      <Provider store={getStore(preloadedState)}>
         <BrowserRouter>{children}</BrowserRouter>
       </Provider>
     );
